@@ -789,8 +789,8 @@
  *   M204 R    Retract Acceleration
  *   M204 T    Travel Acceleration
  */
-#define DEFAULT_ACCELERATION 800          // X, Y, Z and E acceleration for printing moves
-#define DEFAULT_RETRACT_ACCELERATION 1600 // E acceleration for retracts
+#define DEFAULT_ACCELERATION 600          // X, Y, Z and E acceleration for printing moves
+#define DEFAULT_RETRACT_ACCELERATION 1200 // E acceleration for retracts
 #define DEFAULT_TRAVEL_ACCELERATION 1200  // X, Y, Z acceleration for travel (non printing) moves
 
 /**
@@ -801,10 +801,10 @@
  * When changing speed and direction, if the difference is less than the
  * value set here, it may happen instantaneously.
  */
-//#define CLASSIC_JERK
+#define CLASSIC_JERK
 #if ENABLED(CLASSIC_JERK)
-#define DEFAULT_XJERK 10.0
-#define DEFAULT_YJERK 10.0
+#define DEFAULT_XJERK 6.0
+#define DEFAULT_YJERK 6.0
 #define DEFAULT_ZJERK 0.3
 
 //#define LIMITED_JERK_EDITING        // Limit edit via M205 or LCD to DEFAULT_aJERK * 2
@@ -1455,7 +1455,7 @@
 // When enabled Marlin will send a busy status message to the host
 // every couple of seconds when it can't accept commands.
 //
-#define HOST_KEEPALIVE_FEATURE       // Disable this if your host doesn't like keepalive messages
+// #define HOST_KEEPALIVE_FEATURE       // Disable this if your host doesn't like keepalive messages
 #define DEFAULT_KEEPALIVE_INTERVAL 2 // Number of seconds between "busy" messages. Set with M113.
 #define BUSY_WHILE_HEATING           // Some hosts require "busy" messages even during heating
 
@@ -2211,7 +2211,7 @@
 //#define NEOPIXEL2_TYPE NEOPIXEL_TYPE
 //#define NEOPIXEL2_PIN    5
 #define NEOPIXEL_PIXELS 4       // Number of LEDs in the strip, larger of 2 strips if 2 neopixel strips are used
-#define NEOPIXEL_IS_SEQUENTIAL  // Sequential display for temperature change - LED by LED. Disable to change all LEDs at once.
+//#define NEOPIXEL_IS_SEQUENTIAL  // Sequential display for temperature change - LED by LED. Disable to change all LEDs at once.
 #define NEOPIXEL_BRIGHTNESS 127 // Initial brightness (0-255)
 // #define NEOPIXEL_STARTUP_TEST  // Cycle through colors at startup
 

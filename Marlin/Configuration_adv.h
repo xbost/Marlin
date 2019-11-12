@@ -775,7 +775,7 @@
  * vibration and surface artifacts. The algorithm adapts to provide the best possible step smoothing at the
  * lowest stepping frequencies.
  */
-#define ADAPTIVE_STEP_SMOOTHING
+// #define ADAPTIVE_STEP_SMOOTHING
 
 /**
  * Custom Microstepping
@@ -895,11 +895,11 @@
 #if ENABLED(LED_CONTROL_MENU)
 #define LED_COLOR_PRESETS // Enable the Preset Color menu option
 #if ENABLED(LED_COLOR_PRESETS)
-#define LED_USER_PRESET_RED 128        // User defined RED value
-#define LED_USER_PRESET_GREEN 128      // User defined GREEN value
-#define LED_USER_PRESET_BLUE 128       // User defined BLUE value
-#define LED_USER_PRESET_WHITE 128      // User defined WHITE value
-#define LED_USER_PRESET_BRIGHTNESS 255 // User defined intensity
+#define LED_USER_PRESET_RED 255        // User defined RED value
+#define LED_USER_PRESET_GREEN 42      // User defined GREEN value
+#define LED_USER_PRESET_BLUE 0       // User defined BLUE value
+#define LED_USER_PRESET_WHITE 0      // User defined WHITE value
+#define LED_USER_PRESET_BRIGHTNESS 128 // User defined intensity
 #define LED_USER_PRESET_STARTUP        // Have the printer display the user preset color on startup
 #endif
 #endif
@@ -913,7 +913,7 @@
 //#define LCD_DECIMAL_SMALL_XY
 
 // The timeout (in ms) to return to the status screen from sub-menus
-#define LCD_TIMEOUT_TO_STATUS 60000
+#define LCD_TIMEOUT_TO_STATUS 30000
 
 // Add an 'M73' G-code to set the current percentage
 //#define LCD_SET_PROGRESS_MANUALLY
@@ -1176,9 +1176,9 @@
 #define STATUS_HOTEND_INVERTED // Show solid nozzle bitmaps when heating (Requires STATUS_HOTEND_ANIM)
 #define STATUS_HOTEND_ANIM     // Use a second bitmap to indicate hotend heating
 #define STATUS_BED_ANIM        // Use a second bitmap to indicate bed heating
-#define STATUS_CHAMBER_ANIM    // Use a second bitmap to indicate chamber heating
-//#define STATUS_ALT_BED_BITMAP     // Use the alternative bed bitmap
-//#define STATUS_ALT_FAN_BITMAP     // Use the alternative fan bitmap
+// #define STATUS_CHAMBER_ANIM    // Use a second bitmap to indicate chamber heating
+// #define STATUS_ALT_BED_BITMAP     // Use the alternative bed bitmap
+// #define STATUS_ALT_FAN_BITMAP     // Use the alternative fan bitmap
 //#define STATUS_FAN_FRAMES 3       // :[0,1,2,3,4] Number of fan animation frames
 //#define STATUS_HEAT_PERCENT       // Show heating in a progress bar
 //#define BOOT_MARLIN_LOGO_SMALL    // Show a smaller Marlin logo on the Boot Screen (saving 399 bytes of flash)
@@ -1433,7 +1433,7 @@
 //
 // G2/G3 Arc Support
 //
-#define ARC_SUPPORT // Disable this feature to save ~3226 bytes
+//#define ARC_SUPPORT // Disable this feature to save ~3226 bytes
 #if ENABLED(ARC_SUPPORT)
 #define MM_PER_ARC_SEGMENT 1 // Length of each arc segment
 #define MIN_ARC_SEGMENTS 24  // Minimum number of segments in a complete circle
@@ -1459,7 +1459,7 @@
 #endif
 
 // Moves (or segments) with fewer steps than this will be joined with the next move
-#define MIN_STEPS_PER_SEGMENT 5
+#define MIN_STEPS_PER_SEGMENT 2
 
 /**
  * Minimum delay before and after setting the stepper DIR (in ns)
@@ -1502,7 +1502,7 @@
  *
  * Override the default value based on the driver type set in Configuration.h.
  */
-#define MAXIMUM_STEPPER_RATE 250000
+//#define MAXIMUM_STEPPER_RATE 250000
 
 // @section temperature
 
@@ -1518,7 +1518,7 @@
 // The number of linear motions that can be in the plan at any give time.
 // THE BLOCK_BUFFER_SIZE NEEDS TO BE A POWER OF 2 (e.g. 8, 16, 32) because shifts and ors are used to do the ring-buffering.
 #if ENABLED(SDSUPPORT)
-#define BLOCK_BUFFER_SIZE 16 // SD,LCD,Buttons take more memory, block buffer needs to be smaller
+#define BLOCK_BUFFER_SIZE 32 // SD,LCD,Buttons take more memory, block buffer needs to be smaller
 #else
 #define BLOCK_BUFFER_SIZE 16 // maximize block buffer
 #endif
@@ -1527,7 +1527,7 @@
 
 // The ASCII buffer for serial input
 #define MAX_CMD_SIZE 96
-#define BUFSIZE 4
+#define BUFSIZE 16
 
 // Transmission to Host Buffer Size
 // To save 386 bytes of PROGMEM (and TX_BUFFER_SIZE+3 bytes of RAM) set to 0.
@@ -1828,7 +1828,7 @@
 #define INTERPOLATE true    // Interpolate X/Y/Z_MICROSTEPS to 256
 
 #if AXIS_IS_TMC(X)
-#define X_CURRENT 500   // (mA) RMS current. Multiply by 1.414 for peak current.
+#define X_CURRENT 512   // (mA) RMS current. Multiply by 1.414 for peak current.
 #define X_MICROSTEPS 16 // 0..256
 #define X_RSENSE 0.11
 #define X_CHAIN_POS -1 // <=0 : Not chained. 1 : MCU MOSI connected. 2 : Next in chain, ...
@@ -1842,7 +1842,7 @@
 #endif
 
 #if AXIS_IS_TMC(Y)
-#define Y_CURRENT 500
+#define Y_CURRENT 512
 #define Y_MICROSTEPS 16
 #define Y_RSENSE 0.11
 #define Y_CHAIN_POS -1
@@ -1877,7 +1877,7 @@
 #endif
 
 #if AXIS_IS_TMC(E0)
-#define E0_CURRENT 720
+#define E0_CURRENT 740
 #define E0_MICROSTEPS 16
 #define E0_RSENSE 0.11
 #define E0_CHAIN_POS -1
@@ -1986,7 +1986,7 @@
    * When disabled, Marlin will use spreadCycle stepping mode.
    */
 #define STEALTHCHOP_XY
- #define STEALTHCHOP_Z
+#define STEALTHCHOP_Z
 // #define STEALTHCHOP_E
 
 /**
@@ -2033,14 +2033,14 @@
    */
 #define HYBRID_THRESHOLD
 
-#define X_HYBRID_THRESHOLD 120 // [mm/s]
+#define X_HYBRID_THRESHOLD 100 // [mm/s]
 #define X2_HYBRID_THRESHOLD 100
-#define Y_HYBRID_THRESHOLD 120
+#define Y_HYBRID_THRESHOLD 100
 #define Y2_HYBRID_THRESHOLD 100
 #define Z_HYBRID_THRESHOLD 5
 #define Z2_HYBRID_THRESHOLD 3
 #define Z3_HYBRID_THRESHOLD 3
-#define E0_HYBRID_THRESHOLD 40
+#define E0_HYBRID_THRESHOLD 30
 #define E1_HYBRID_THRESHOLD 30
 #define E2_HYBRID_THRESHOLD 30
 #define E3_HYBRID_THRESHOLD 30
@@ -2094,7 +2094,7 @@
    * Beta feature!
    * Create a 50/50 square wave step pulse optimal for stepper drivers.
    */
-#define SQUARE_WAVE_STEPPING
+//#define SQUARE_WAVE_STEPPING
 
 /**
    * Enable M122 debugging command for TMC stepper drivers.
