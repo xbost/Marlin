@@ -501,10 +501,10 @@
 #define X2_MIN_POS 80          // Set a minimum to ensure the  second X-carriage can't hit the parked first X-carriage
 #define X2_MAX_POS 353         // Set this to the distance between toolheads when both heads are homed
 #define X2_HOME_DIR 1          // Set to 1. The second X-carriage always homes to the maximum endstop position
-#define X2_HOME_POS X2_MAX_POS // Default X2 home position. Set to X2_MAX_POS.
-                               // However: In this mode the HOTEND_OFFSET_X value for the second extruder provides a software
-                               // override for X2_HOME_POS. This also allow recalibration of the distance between the two endstops
-                               // without modifying the firmware (through the "M218 T1 X???" command).
+#define X2_HOME_POS X2_MAX_POS // Default X2 home position. Set to X2_MAX_POS.                                                     \
+                               // However: In this mode the HOTEND_OFFSET_X value for the second extruder provides a software      \
+                               // override for X2_HOME_POS. This also allow recalibration of the distance between the two endstops \
+                               // without modifying the firmware (through the "M218 T1 X???" command).                             \
                                // Remember: you should set the second extruder x-offset to 0 in your slicer.
 
 // This is the default power-up mode which can be later using M605.
@@ -899,9 +899,9 @@
 #define LED_COLOR_PRESETS // Enable the Preset Color menu option
 #if ENABLED(LED_COLOR_PRESETS)
 #define LED_USER_PRESET_RED 255        // User defined RED value
-#define LED_USER_PRESET_GREEN 42      // User defined GREEN value
-#define LED_USER_PRESET_BLUE 0       // User defined BLUE value
-#define LED_USER_PRESET_WHITE 0      // User defined WHITE value
+#define LED_USER_PRESET_GREEN 42       // User defined GREEN value
+#define LED_USER_PRESET_BLUE 0         // User defined BLUE value
+#define LED_USER_PRESET_WHITE 0        // User defined WHITE value
 #define LED_USER_PRESET_BRIGHTNESS 128 // User defined intensity
 #define LED_USER_PRESET_STARTUP        // Have the printer display the user preset color on startup
 #endif
@@ -925,9 +925,9 @@
 //#define LCD_SHOW_E_TOTAL
 
 #if HAS_GRAPHICAL_LCD && HAS_PRINT_PROGRESS
-  //#define PRINT_PROGRESS_SHOW_DECIMALS // Show progress with decimal digits
-  //#define SHOW_REMAINING_TIME          // Display estimated time to completion
-  //#define ROTATE_PROGRESS_DISPLAY      // Display (P)rogress, (E)lapsed, and (R)emaining time
+//#define PRINT_PROGRESS_SHOW_DECIMALS // Show progress with decimal digits
+//#define SHOW_REMAINING_TIME          // Display estimated time to completion
+//#define ROTATE_PROGRESS_DISPLAY      // Display (P)rogress, (E)lapsed, and (R)emaining time
 #endif
 
 #if HAS_CHARACTER_LCD && HAS_PRINT_PROGRESS
@@ -1208,86 +1208,86 @@
 // Lulzbot Touch UI
 //
 #if ENABLED(LULZBOT_TOUCH_UI)
-  // Display board used
-  //#define LCD_FTDI_VM800B35A        // FTDI 3.5" with FT800 (320x240)
-  //#define LCD_4DSYSTEMS_4DLCD_FT843 // 4D Systems 4.3" (480x272)
-  //#define LCD_HAOYU_FT800CB         // Haoyu with 4.3" or 5" (480x272)
-  //#define LCD_HAOYU_FT810CB         // Haoyu with 5" (800x480)
-  //#define LCD_ALEPHOBJECTS_CLCD_UI  // Aleph Objects Color LCD UI
+// Display board used
+//#define LCD_FTDI_VM800B35A        // FTDI 3.5" with FT800 (320x240)
+//#define LCD_4DSYSTEMS_4DLCD_FT843 // 4D Systems 4.3" (480x272)
+//#define LCD_HAOYU_FT800CB         // Haoyu with 4.3" or 5" (480x272)
+//#define LCD_HAOYU_FT810CB         // Haoyu with 5" (800x480)
+//#define LCD_ALEPHOBJECTS_CLCD_UI  // Aleph Objects Color LCD UI
 
-  // Correct the resolution if not using the stock TFT panel.
-  //#define TOUCH_UI_320x240
-  //#define TOUCH_UI_480x272
-  //#define TOUCH_UI_800x480
+// Correct the resolution if not using the stock TFT panel.
+//#define TOUCH_UI_320x240
+//#define TOUCH_UI_480x272
+//#define TOUCH_UI_800x480
 
-  // Mappings for boards with a standard RepRapDiscount Display connector
-  //#define AO_EXP1_PINMAP    // AlephObjects CLCD UI EXP1 mapping
-  //#define AO_EXP2_PINMAP    // AlephObjects CLCD UI EXP2 mapping
-  //#define CR10_TFT_PINMAP   // Rudolph Riedel's CR10 pin mapping
-  //#define OTHER_PIN_LAYOUT  // Define pins manually below
-  #if ENABLED(OTHER_PIN_LAYOUT)
-    // The pins for CS and MOD_RESET (PD) must be chosen.
-    #define CLCD_MOD_RESET  9
-    #define CLCD_SPI_CS    10
+// Mappings for boards with a standard RepRapDiscount Display connector
+//#define AO_EXP1_PINMAP    // AlephObjects CLCD UI EXP1 mapping
+//#define AO_EXP2_PINMAP    // AlephObjects CLCD UI EXP2 mapping
+//#define CR10_TFT_PINMAP   // Rudolph Riedel's CR10 pin mapping
+//#define OTHER_PIN_LAYOUT  // Define pins manually below
+#if ENABLED(OTHER_PIN_LAYOUT)
+// The pins for CS and MOD_RESET (PD) must be chosen.
+#define CLCD_MOD_RESET 9
+#define CLCD_SPI_CS 10
 
-    // If using software SPI, specify pins for SCLK, MOSI, MISO
-    //#define CLCD_USE_SOFT_SPI
-    #if ENABLED(CLCD_USE_SOFT_SPI)
-      #define CLCD_SOFT_SPI_MOSI 11
-      #define CLCD_SOFT_SPI_MISO 12
-      #define CLCD_SOFT_SPI_SCLK 13
-    #endif
-  #endif
+// If using software SPI, specify pins for SCLK, MOSI, MISO
+//#define CLCD_USE_SOFT_SPI
+#if ENABLED(CLCD_USE_SOFT_SPI)
+#define CLCD_SOFT_SPI_MOSI 11
+#define CLCD_SOFT_SPI_MISO 12
+#define CLCD_SOFT_SPI_SCLK 13
+#endif
+#endif
 
-  // Display Orientation. An inverted (i.e. upside-down) display
-  // is supported on the FT800. The FT810 and beyond also support
-  // portrait and mirrored orientations.
-  //#define TOUCH_UI_INVERTED
-  //#define TOUCH_UI_PORTRAIT
-  //#define TOUCH_UI_MIRRORED
+// Display Orientation. An inverted (i.e. upside-down) display
+// is supported on the FT800. The FT810 and beyond also support
+// portrait and mirrored orientations.
+//#define TOUCH_UI_INVERTED
+//#define TOUCH_UI_PORTRAIT
+//#define TOUCH_UI_MIRRORED
 
-  // UTF8 processing and rendering.
-  // Unsupported characters are shown as '?'.
-  //#define TOUCH_UI_USE_UTF8
-  #if ENABLED(TOUCH_UI_USE_UTF8)
-    // Western accents support. These accented characters use
-    // combined bitmaps and require relatively little storage.
-    #define TOUCH_UI_UTF8_WESTERN_CHARSET
-    #if ENABLED(TOUCH_UI_UTF8_WESTERN_CHARSET)
-      // Additional character groups. These characters require
-      // full bitmaps and take up considerable storage:
-      //#define TOUCH_UI_UTF8_SUPERSCRIPTS  // ¹ ² ³
-      //#define TOUCH_UI_UTF8_COPYRIGHT     // © ®
-      //#define TOUCH_UI_UTF8_GERMANIC      // ß
-      //#define TOUCH_UI_UTF8_SCANDINAVIAN  // Æ Ð Ø Þ æ ð ø þ
-      //#define TOUCH_UI_UTF8_PUNCTUATION   // « » ¿ ¡
-      //#define TOUCH_UI_UTF8_CURRENCY      // ¢ £ ¤ ¥
-      //#define TOUCH_UI_UTF8_ORDINALS      // º ª
-      //#define TOUCH_UI_UTF8_MATHEMATICS   // ± × ÷
-      //#define TOUCH_UI_UTF8_FRACTIONS     // ¼ ½ ¾
-      //#define TOUCH_UI_UTF8_SYMBOLS       // µ ¶ ¦ § ¬
-    #endif
-  #endif
+// UTF8 processing and rendering.
+// Unsupported characters are shown as '?'.
+//#define TOUCH_UI_USE_UTF8
+#if ENABLED(TOUCH_UI_USE_UTF8)
+// Western accents support. These accented characters use
+// combined bitmaps and require relatively little storage.
+#define TOUCH_UI_UTF8_WESTERN_CHARSET
+#if ENABLED(TOUCH_UI_UTF8_WESTERN_CHARSET)
+// Additional character groups. These characters require
+// full bitmaps and take up considerable storage:
+//#define TOUCH_UI_UTF8_SUPERSCRIPTS  // ¹ ² ³
+//#define TOUCH_UI_UTF8_COPYRIGHT     // © ®
+//#define TOUCH_UI_UTF8_GERMANIC      // ß
+//#define TOUCH_UI_UTF8_SCANDINAVIAN  // Æ Ð Ø Þ æ ð ø þ
+//#define TOUCH_UI_UTF8_PUNCTUATION   // « » ¿ ¡
+//#define TOUCH_UI_UTF8_CURRENCY      // ¢ £ ¤ ¥
+//#define TOUCH_UI_UTF8_ORDINALS      // º ª
+//#define TOUCH_UI_UTF8_MATHEMATICS   // ± × ÷
+//#define TOUCH_UI_UTF8_FRACTIONS     // ¼ ½ ¾
+//#define TOUCH_UI_UTF8_SYMBOLS       // µ ¶ ¦ § ¬
+#endif
+#endif
 
-  // Use a smaller font when labels don't fit buttons
-  #define TOUCH_UI_FIT_TEXT
+// Use a smaller font when labels don't fit buttons
+#define TOUCH_UI_FIT_TEXT
 
-  // Allow language selection from menu at run-time (otherwise use LCD_LANGUAGE)
-  //#define LCD_LANGUAGE_1 en
-  //#define LCD_LANGUAGE_2 fr
-  //#define LCD_LANGUAGE_3 de
-  //#define LCD_LANGUAGE_4 es
-  //#define LCD_LANGUAGE_5 it
+// Allow language selection from menu at run-time (otherwise use LCD_LANGUAGE)
+//#define LCD_LANGUAGE_1 en
+//#define LCD_LANGUAGE_2 fr
+//#define LCD_LANGUAGE_3 de
+//#define LCD_LANGUAGE_4 es
+//#define LCD_LANGUAGE_5 it
 
-  // Use a numeric passcode for "Screen lock" keypad.
-  // (recommended for smaller displays)
-  //#define TOUCH_UI_PASSCODE
+// Use a numeric passcode for "Screen lock" keypad.
+// (recommended for smaller displays)
+//#define TOUCH_UI_PASSCODE
 
-  // Output extra debug info for Touch UI events
-  //#define TOUCH_UI_DEBUG
+// Output extra debug info for Touch UI events
+//#define TOUCH_UI_DEBUG
 
-  // Developer menu (accessed by touching "About Printer" copyright text)
-  //#define TOUCH_UI_DEVELOPER_MENU
+// Developer menu (accessed by touching "About Printer" copyright text)
+//#define TOUCH_UI_DEVELOPER_MENU
 #endif
 
 //
@@ -1329,30 +1329,30 @@
  */
 #define BABYSTEPPING
 #if ENABLED(BABYSTEPPING)
-  //#define BABYSTEP_WITHOUT_HOMING
-  //#define BABYSTEP_XY                     // Also enable X/Y Babystepping. Not supported on DELTA!
-  #define BABYSTEP_INVERT_Z false           // Change if Z babysteps should go the other way
-  #define BABYSTEP_MULTIPLICATOR_Z  1       // Babysteps are very small. Increase for faster motion.
-  #define BABYSTEP_MULTIPLICATOR_XY 1
+//#define BABYSTEP_WITHOUT_HOMING
+//#define BABYSTEP_XY                     // Also enable X/Y Babystepping. Not supported on DELTA!
+#define BABYSTEP_INVERT_Z false    // Change if Z babysteps should go the other way
+#define BABYSTEP_MULTIPLICATOR_Z 1 // Babysteps are very small. Increase for faster motion.
+#define BABYSTEP_MULTIPLICATOR_XY 1
 
-  //#define DOUBLECLICK_FOR_Z_BABYSTEPPING  // Double-click on the Status Screen for Z Babystepping.
-  #if ENABLED(DOUBLECLICK_FOR_Z_BABYSTEPPING)
-    #define DOUBLECLICK_MAX_INTERVAL 1250   // Maximum interval between clicks, in milliseconds.
-                                            // Note: Extra time may be added to mitigate controller latency.
-    //#define BABYSTEP_ALWAYS_AVAILABLE     // Allow babystepping at all times (not just during movement).
-    //#define MOVE_Z_WHEN_IDLE              // Jump to the move Z menu on doubleclick when printer is idle.
-    #if ENABLED(MOVE_Z_WHEN_IDLE)
-      #define MOVE_Z_IDLE_MULTIPLICATOR 1   // Multiply 1mm by this factor for the move step size.
-    #endif
-  #endif
+//#define DOUBLECLICK_FOR_Z_BABYSTEPPING  // Double-click on the Status Screen for Z Babystepping.
+#if ENABLED(DOUBLECLICK_FOR_Z_BABYSTEPPING)
+#define DOUBLECLICK_MAX_INTERVAL 1250 // Maximum interval between clicks, in milliseconds. \
+                                      // Note: Extra time may be added to mitigate controller latency.
+//#define BABYSTEP_ALWAYS_AVAILABLE     // Allow babystepping at all times (not just during movement).
+//#define MOVE_Z_WHEN_IDLE              // Jump to the move Z menu on doubleclick when printer is idle.
+#if ENABLED(MOVE_Z_WHEN_IDLE)
+#define MOVE_Z_IDLE_MULTIPLICATOR 1 // Multiply 1mm by this factor for the move step size.
+#endif
+#endif
 
-  //#define BABYSTEP_DISPLAY_TOTAL          // Display total babysteps since last G28
+//#define BABYSTEP_DISPLAY_TOTAL          // Display total babysteps since last G28
 
-  //#define BABYSTEP_ZPROBE_OFFSET          // Combine M851 Z and Babystepping
-  #if ENABLED(BABYSTEP_ZPROBE_OFFSET)
-    //#define BABYSTEP_HOTEND_Z_OFFSET      // For multiple hotends, babystep relative Z offsets
-    //#define BABYSTEP_ZPROBE_GFX_OVERLAY   // Enable graphical overlay on Z-offset editor
-  #endif
+//#define BABYSTEP_ZPROBE_OFFSET          // Combine M851 Z and Babystepping
+#if ENABLED(BABYSTEP_ZPROBE_OFFSET)
+//#define BABYSTEP_HOTEND_Z_OFFSET      // For multiple hotends, babystep relative Z offsets
+//#define BABYSTEP_ZPROBE_GFX_OVERLAY   // Enable graphical overlay on Z-offset editor
+#endif
 #endif
 
 // @section extruder
@@ -1840,108 +1840,108 @@
  */
 #if HAS_TRINAMIC
 
-  #define HOLD_MULTIPLIER    0.5  // Scales down the holding current from run current
-  #define INTERPOLATE       true  // Interpolate X/Y/Z_MICROSTEPS to 256
+#define HOLD_MULTIPLIER 0.6 // Scales down the holding current from run current
+#define INTERPOLATE true    // Interpolate X/Y/Z_MICROSTEPS to 256
 
-  #if AXIS_IS_TMC(X)
-    #define X_CURRENT       800        // (mA) RMS current. Multiply by 1.414 for peak current.
-    #define X_CURRENT_HOME  X_CURRENT  // (mA) RMS current for sensorless homing
-    #define X_MICROSTEPS     16    // 0..256
-    #define X_RSENSE          0.11
-    #define X_CHAIN_POS      -1    // <=0 : Not chained. 1 : MCU MOSI connected. 2 : Next in chain, ...
-  #endif
+#if AXIS_IS_TMC(X)
+#define X_CURRENT 550            // (mA) RMS current. Multiply by 1.414 for peak current.
+#define X_CURRENT_HOME X_CURRENT // (mA) RMS current for sensorless homing
+#define X_MICROSTEPS 16          // 0..256
+#define X_RSENSE 0.11
+#define X_CHAIN_POS -1 // <=0 : Not chained. 1 : MCU MOSI connected. 2 : Next in chain, ...
+#endif
 
-  #if AXIS_IS_TMC(X2)
-    #define X2_CURRENT      800
-    #define X2_CURRENT_HOME X2_CURRENT
-    #define X2_MICROSTEPS    16
-    #define X2_RSENSE         0.11
-    #define X2_CHAIN_POS     -1
-  #endif
+#if AXIS_IS_TMC(X2)
+#define X2_CURRENT 800
+#define X2_CURRENT_HOME X2_CURRENT
+#define X2_MICROSTEPS 16
+#define X2_RSENSE 0.11
+#define X2_CHAIN_POS -1
+#endif
 
-  #if AXIS_IS_TMC(Y)
-    #define Y_CURRENT       800
-    #define Y_CURRENT_HOME  Y_CURRENT
-    #define Y_MICROSTEPS     16
-    #define Y_RSENSE          0.11
-    #define Y_CHAIN_POS      -1
-  #endif
+#if AXIS_IS_TMC(Y)
+#define Y_CURRENT 550
+#define Y_CURRENT_HOME Y_CURRENT
+#define Y_MICROSTEPS 16
+#define Y_RSENSE 0.11
+#define Y_CHAIN_POS -1
+#endif
 
-  #if AXIS_IS_TMC(Y2)
-    #define Y2_CURRENT      800
-    #define Y2_CURRENT_HOME Y2_CURRENT
-    #define Y2_MICROSTEPS    16
-    #define Y2_RSENSE         0.11
-    #define Y2_CHAIN_POS     -1
-  #endif
+#if AXIS_IS_TMC(Y2)
+#define Y2_CURRENT 800
+#define Y2_CURRENT_HOME Y2_CURRENT
+#define Y2_MICROSTEPS 16
+#define Y2_RSENSE 0.11
+#define Y2_CHAIN_POS -1
+#endif
 
-  #if AXIS_IS_TMC(Z)
-    #define Z_CURRENT       800
-    #define Z_CURRENT_HOME  Z_CURRENT
-    #define Z_MICROSTEPS     16
-    #define Z_RSENSE          0.11
-    #define Z_CHAIN_POS      -1
-  #endif
+#if AXIS_IS_TMC(Z)
+#define Z_CURRENT 600
+#define Z_CURRENT_HOME Z_CURRENT
+#define Z_MICROSTEPS 16
+#define Z_RSENSE 0.11
+#define Z_CHAIN_POS -1
+#endif
 
-  #if AXIS_IS_TMC(Z2)
-    #define Z2_CURRENT      800
-    #define Z2_CURRENT_HOME Z2_CURRENT
-    #define Z2_MICROSTEPS    16
-    #define Z2_RSENSE         0.11
-    #define Z2_CHAIN_POS     -1
-  #endif
+#if AXIS_IS_TMC(Z2)
+#define Z2_CURRENT 800
+#define Z2_CURRENT_HOME Z2_CURRENT
+#define Z2_MICROSTEPS 16
+#define Z2_RSENSE 0.11
+#define Z2_CHAIN_POS -1
+#endif
 
-  #if AXIS_IS_TMC(Z3)
-    #define Z3_CURRENT      800
-    #define Z3_CURRENT_HOME Z3_CURRENT
-    #define Z3_MICROSTEPS    16
-    #define Z3_RSENSE         0.11
-    #define Z3_CHAIN_POS     -1
-  #endif
+#if AXIS_IS_TMC(Z3)
+#define Z3_CURRENT 800
+#define Z3_CURRENT_HOME Z3_CURRENT
+#define Z3_MICROSTEPS 16
+#define Z3_RSENSE 0.11
+#define Z3_CHAIN_POS -1
+#endif
 
-  #if AXIS_IS_TMC(E0)
-    #define E0_CURRENT      800
-    #define E0_MICROSTEPS    16
-    #define E0_RSENSE         0.11
-    #define E0_CHAIN_POS     -1
-  #endif
+#if AXIS_IS_TMC(E0)
+#define E0_CURRENT 700
+#define E0_MICROSTEPS 16
+#define E0_RSENSE 0.11
+#define E0_CHAIN_POS -1
+#endif
 
-  #if AXIS_IS_TMC(E1)
-    #define E1_CURRENT      800
-    #define E1_MICROSTEPS    16
-    #define E1_RSENSE         0.11
-    #define E1_CHAIN_POS     -1
-  #endif
+#if AXIS_IS_TMC(E1)
+#define E1_CURRENT 800
+#define E1_MICROSTEPS 16
+#define E1_RSENSE 0.11
+#define E1_CHAIN_POS -1
+#endif
 
-  #if AXIS_IS_TMC(E2)
-    #define E2_CURRENT      800
-    #define E2_MICROSTEPS    16
-    #define E2_RSENSE         0.11
-    #define E2_CHAIN_POS     -1
-  #endif
+#if AXIS_IS_TMC(E2)
+#define E2_CURRENT 800
+#define E2_MICROSTEPS 16
+#define E2_RSENSE 0.11
+#define E2_CHAIN_POS -1
+#endif
 
-  #if AXIS_IS_TMC(E3)
-    #define E3_CURRENT      800
-    #define E3_MICROSTEPS    16
-    #define E3_RSENSE         0.11
-    #define E3_CHAIN_POS     -1
-  #endif
+#if AXIS_IS_TMC(E3)
+#define E3_CURRENT 800
+#define E3_MICROSTEPS 16
+#define E3_RSENSE 0.11
+#define E3_CHAIN_POS -1
+#endif
 
-  #if AXIS_IS_TMC(E4)
-    #define E4_CURRENT      800
-    #define E4_MICROSTEPS    16
-    #define E4_RSENSE         0.11
-    #define E4_CHAIN_POS     -1
-  #endif
+#if AXIS_IS_TMC(E4)
+#define E4_CURRENT 800
+#define E4_MICROSTEPS 16
+#define E4_RSENSE 0.11
+#define E4_CHAIN_POS -1
+#endif
 
-  #if AXIS_IS_TMC(E5)
-    #define E5_CURRENT      800
-    #define E5_MICROSTEPS    16
-    #define E5_RSENSE         0.11
-    #define E5_CHAIN_POS     -1
-  #endif
+#if AXIS_IS_TMC(E5)
+#define E5_CURRENT 800
+#define E5_MICROSTEPS 16
+#define E5_RSENSE 0.11
+#define E5_CHAIN_POS -1
+#endif
 
-  /**
+/**
    * Override default SPI pins for TMC2130, TMC2160, TMC2660, TMC5130 and TMC5160 drivers here.
    * The default pins can be found in your board's pins file.
    */
@@ -2103,20 +2103,20 @@
    * CAUTION: This could cause damage to machines that use a lead screw or threaded rod
    *          to move the Z axis. Take extreme care when attempting to enable this feature.
    */
-  //#define SENSORLESS_PROBING // StallGuard capable drivers only
+//#define SENSORLESS_PROBING // StallGuard capable drivers only
 
-  #if EITHER(SENSORLESS_HOMING, SENSORLESS_PROBING)
-    // TMC2209: 0...255. TMC2130: -64...63
-    #define X_STALL_SENSITIVITY  8
-    #define X2_STALL_SENSITIVITY X_STALL_SENSITIVITY
-    #define Y_STALL_SENSITIVITY  8
-    //#define Z_STALL_SENSITIVITY  8
-    //#define SPI_ENDSTOPS              // TMC2130 only
-    //#define HOME_USING_SPREADCYCLE
-    //#define IMPROVE_HOMING_RELIABILITY
-  #endif
+#if EITHER(SENSORLESS_HOMING, SENSORLESS_PROBING)
+// TMC2209: 0...255. TMC2130: -64...63
+#define X_STALL_SENSITIVITY 8
+#define X2_STALL_SENSITIVITY X_STALL_SENSITIVITY
+#define Y_STALL_SENSITIVITY 8
+//#define Z_STALL_SENSITIVITY  8
+//#define SPI_ENDSTOPS              // TMC2130 only
+//#define HOME_USING_SPREADCYCLE
+//#define IMPROVE_HOMING_RELIABILITY
+#endif
 
-  /**
+/**
    * Beta feature!
    * Create a 50/50 square wave step pulse optimal for stepper drivers.
    */
