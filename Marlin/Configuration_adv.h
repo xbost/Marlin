@@ -2175,7 +2175,7 @@
    *   stepperY.intpol(0); \
    * }
    */
-  #define TMC_ADV() { stepperE0.intpol(0); }
+  #define TMC_ADV() {  }
 
 #endif // HAS_TRINAMIC
 
